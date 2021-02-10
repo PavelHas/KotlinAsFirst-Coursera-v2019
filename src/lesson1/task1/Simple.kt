@@ -53,8 +53,7 @@ fun main() {
     val x1x2 = quadraticRootProduct(1.0, 13.0, 42.0)
     println("Root product: $x1x2")
     println()
-
-    println(seconds(8, 20, 35)) // 30035
+/*    println(seconds(8, 20, 35)) // 30035
 
     val result = sqr (7)
     println("7 * 7 = $result") // 7 * 7 = 49
@@ -72,6 +71,8 @@ fun main() {
     println(accountInThreeYears(100, 10)) // 133.1
 
     println(numberRevert(478)) // 874
+
+*/
 }
 
 /**

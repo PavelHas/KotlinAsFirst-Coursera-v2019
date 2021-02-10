@@ -3,6 +3,7 @@
 package lesson2.task1
 
 import lesson1.task1.discriminant
+import java.lang.Integer.min
 import kotlin.math.max
 import kotlin.math.sqrt
 
@@ -63,8 +64,14 @@ fun minBiRoot(a: Double, b: Double, c: Double): Double {
  * Мой возраст. Для заданного 0 < n < 200, рассматриваемого как возраст человека,
  * вернуть строку вида: «21 год», «32 года», «12 лет».
  */
-fun ageDescription(age: Int): String = TODO()
-
+fun ageDescription(age: Int): String //= TODO()
+{
+    if ((age in 11..19) || (age in 111..119)) return "$age лет"
+    if ((age % 10) == 1) return "$age год"
+    if ((age % 10) in 2..4) return "$age года"
+    if (((age % 10) == 0) || ((age % 10) in 5..9)) return "$age лет"
+    return ""
+}
 /**
  * Простая
  *
@@ -76,8 +83,16 @@ fun timeForHalfWay(
     t1: Double, v1: Double,
     t2: Double, v2: Double,
     t3: Double, v3: Double
-): Double = TODO()
-
+): Double //= TODO()
+{
+    val halfOfallS: Double = ((t1 * v1) + (t2 * v2) + (t3 * v3)) / 2
+    if (halfOfallS == t1 * v1) return t1
+    if (halfOfallS == (t1 * v1) + (t2 * v2)) return t1 + t2
+    if (halfOfallS < t1 * v1) return t1 - (((t1 * v1) - halfOfallS) / v1)
+    if (halfOfallS < (t1 * v1) + (t2 * v2)) return (halfOfallS - (t1 * v1)) / v2 + t1
+    if (halfOfallS > (t1 * v1) + (t2 * v2)) return (halfOfallS - ((t1 * v1) + (t2 * v2))) / v3 + t1 + t2
+    return 0.0
+}
 /**
  * Простая
  *
@@ -91,8 +106,13 @@ fun whichRookThreatens(
     kingX: Int, kingY: Int,
     rookX1: Int, rookY1: Int,
     rookX2: Int, rookY2: Int
-): Int = TODO()
-
+): Int //= TODO()
+{
+    if (((kingX == rookX1) || (kingY == rookY1)) && ((kingX == rookX2) || (kingY == rookY2))) return 3
+    if ((kingX == rookX1) || (kingY == rookY1)) return 1
+    if ((kingX == rookX2) || (kingY == rookY2)) return 2
+    return 0
+}
 /**
  * Простая
  *
@@ -107,8 +127,13 @@ fun rookOrBishopThreatens(
     kingX: Int, kingY: Int,
     rookX: Int, rookY: Int,
     bishopX: Int, bishopY: Int
-): Int = TODO()
-
+): Int //= TODO()
+{
+    if (((max(kingX, bishopX) - min(kingX, bishopX)) == (max(kingY, bishopY) - min(kingY, bishopY))) && ((kingX == rookX) || (kingY == rookY))) return 3
+    if ((max(kingX, bishopX) - min(kingX, bishopX)) == (max(kingY, bishopY) - min(kingY, bishopY))) return 2
+    if ((kingX == rookX) || (kingY == rookY)) return 1
+    return 0
+}
 /**
  * Простая
  *
@@ -117,8 +142,59 @@ fun rookOrBishopThreatens(
  * прямоугольным (вернуть 1) или тупоугольным (вернуть 2).
  * Если такой треугольник не существует, вернуть -1.
  */
-fun triangleKind(a: Double, b: Double, c: Double): Int = TODO()
-
+fun triangleKind(a: Double, b: Double, c: Double): Int //= TODO()
+{
+    val smallTriangleSide: Double
+    val mediumTriangleSide: Double
+    val largeTriangleSide: Double
+    if (a > b) {
+        if (a > c) {
+            largeTriangleSide = a
+            if (b > c) {
+                mediumTriangleSide = b
+                smallTriangleSide = c
+            } else {
+                mediumTriangleSide = c
+                smallTriangleSide = b
+            }
+        } else {
+            largeTriangleSide = c
+            if (a > b) {
+                mediumTriangleSide = a
+                smallTriangleSide = b
+            } else {
+                mediumTriangleSide = b
+                smallTriangleSide = a
+            }
+        }
+    } else {
+        if (b > c) {
+            largeTriangleSide = b
+            if (a > c) {
+                mediumTriangleSide = a
+                smallTriangleSide = c
+            } else {
+                mediumTriangleSide = c
+                smallTriangleSide = a
+            }
+        } else {
+            largeTriangleSide = c
+            if (a > b) {
+                mediumTriangleSide = a
+                smallTriangleSide = b
+            } else {
+                mediumTriangleSide = b
+                smallTriangleSide = a
+            }
+        }
+    }
+    if ((largeTriangleSide < mediumTriangleSide + smallTriangleSide) && (largeTriangleSide > mediumTriangleSide - smallTriangleSide)) {
+        if (largeTriangleSide * largeTriangleSide == (mediumTriangleSide * mediumTriangleSide) + (smallTriangleSide * smallTriangleSide)) return 1
+        if (largeTriangleSide * largeTriangleSide < (mediumTriangleSide * mediumTriangleSide) + (smallTriangleSide * smallTriangleSide)) return 0
+        if (largeTriangleSide * largeTriangleSide > (mediumTriangleSide * mediumTriangleSide) + (smallTriangleSide * smallTriangleSide)) return 2
+    }
+    return -1
+}
 /**
  * Средняя
  *
@@ -127,4 +203,12 @@ fun triangleKind(a: Double, b: Double, c: Double): Int = TODO()
  * Найти длину пересечения отрезков AB и CD.
  * Если пересечения нет, вернуть -1.
  */
-fun segmentLength(a: Int, b: Int, c: Int, d: Int): Int = TODO()
+fun segmentLength(a: Int, b: Int, c: Int, d: Int): Int //= TODO()
+{
+    if (b == c) return 0
+    if ((b > c) && (a < c) && (d > b)) return b - c
+    if ((d > a) && (a > c) && (b > d)) return d - a
+    if ((a > c) && (d > b)) return b - a
+    if ((c > a) && (b > d)) return d - c
+    return -1
+}
