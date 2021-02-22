@@ -71,6 +71,10 @@ class Tests {
         assertEquals(2, digitNumber(99))
         assertEquals(3, digitNumber(123))
         assertEquals(10, digitNumber(Int.MAX_VALUE))
+        //my
+        assertEquals(5, digitNumber(55123))
+        assertEquals(9, digitNumber(123456789))
+        assertEquals(2, digitNumber(-19))
     }
 
     @Test
@@ -86,6 +90,9 @@ class Tests {
         assertEquals(1836311903, fib(46))
         // Just to calculate it
         fib(50)
+        //my
+        assertEquals(3, fib(4))
+        assertEquals(13, fib(7))
     }
 
     @Test
@@ -100,6 +107,9 @@ class Tests {
         assertEquals(2089830349, lcm(23579, 88631))
         assertEquals(2022222222, lcm(2, 1011111111))
         assertEquals(2022222222, lcm(1011111111, 2))
+        // my
+        assertEquals(1, lcm(1, 1))
+        assertEquals(30, lcm(3, 10))
     }
 
     @Test
@@ -114,6 +124,9 @@ class Tests {
         assertEquals(2124679, minDivisor(2124679))
         assertEquals(1073676287, minDivisor(1073676287))
         assertEquals(Int.MAX_VALUE, minDivisor(Int.MAX_VALUE))
+        // my
+        assertEquals(17, minDivisor(17))
+        assertEquals(2, minDivisor(100))
     }
 
     @Test
@@ -128,6 +141,9 @@ class Tests {
         assertEquals(1, maxDivisor(2124679))
         assertEquals(1, maxDivisor(1073676287))
         assertEquals(1, maxDivisor(Int.MAX_VALUE))
+        // my
+        assertEquals(5, maxDivisor(10))
+        assertEquals(50, maxDivisor(100))
     }
 
     @Test
@@ -139,6 +155,11 @@ class Tests {
         assertFalse(isCoPrime(37, 111))
         assertTrue(isCoPrime(1234567890, 908765431))
         assertTrue(isCoPrime(2109876543, 1234567891))
+        // my
+        assertTrue(isCoPrime(31, 17))
+        assertFalse(isCoPrime(122, 14))
+        assertFalse(isCoPrime(2, 2))
+        assertFalse(isCoPrime(12, 12))
     }
 
     @Test
@@ -152,6 +173,10 @@ class Tests {
         assertFalse(squareBetweenExists(999, 1001))
         assertTrue(squareBetweenExists(152374337, 152423715))
         assertFalse(squareBetweenExists(2147395601, Int.MAX_VALUE))
+        // my
+        assertTrue(squareBetweenExists(79, 85))
+        assertFalse(squareBetweenExists(21, 24))
+        assertTrue(squareBetweenExists(0, 0))
     }
 
     @Test
@@ -168,6 +193,9 @@ class Tests {
         assertEquals(7, collatzSteps(128))
         assertEquals(111, collatzSteps(1000))
         assertEquals(128, collatzSteps(100000))
+        // my
+        assertEquals(2, collatzSteps(4))
+        assertEquals(8, collatzSteps(6))
     }
 
     @Test
@@ -203,6 +231,9 @@ class Tests {
         assertEquals(111, revert(111))
         assertEquals(17571, revert(17571))
         assertEquals(123456789, revert(987654321))
+        // my
+        assertEquals(765, revert(567))
+        assertEquals(1234, revert(4321))
     }
 
     @Test
@@ -212,6 +243,9 @@ class Tests {
         assertFalse(isPalindrome(3653))
         assertTrue(isPalindrome(15751))
         assertTrue(isPalindrome(24688642))
+        // my
+        assertTrue(isPalindrome(7667))
+        assertFalse(isPalindrome(6767))
     }
 
     @Test
@@ -223,6 +257,10 @@ class Tests {
         assertFalse(hasDifferentDigits(0))
         assertFalse(hasDifferentDigits(777))
         assertTrue(hasDifferentDigits(31122))
+        // my
+        assertFalse(hasDifferentDigits(3))
+        assertFalse(hasDifferentDigits(66666))
+        assertTrue(hasDifferentDigits(2221))
     }
 
     @Test
@@ -234,6 +272,9 @@ class Tests {
         assertEquals(6, squareSequenceDigit(12))
         assertEquals(0, squareSequenceDigit(17))
         assertEquals(9, squareSequenceDigit(27))
+        // my
+        assertEquals(9, squareSequenceDigit(3))
+        assertEquals(1, squareSequenceDigit(4))
     }
 
     @Test
@@ -245,5 +286,8 @@ class Tests {
         assertEquals(2, fibSequenceDigit(9))
         assertEquals(5, fibSequenceDigit(14))
         assertEquals(2, fibSequenceDigit(20))
+        // my
+        assertEquals(3, fibSequenceDigit(23))
+        assertEquals(7, fibSequenceDigit(24))
     }
 }
