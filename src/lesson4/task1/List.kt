@@ -428,6 +428,7 @@ fun roman(n: Int): String //= TODO()
     var list: MutableList<String> = mutableListOf()
     for (i in 1..digitNumber(n)) {
         if (i == 1) when (x1 % 10) {
+            0 -> x2 = ""
             1 -> x2 = "I"
             2 -> x2 = "II"
             3 -> x2 = "III"
@@ -439,6 +440,7 @@ fun roman(n: Int): String //= TODO()
             9 -> x2 = "IX"
         }
         if (i == 2) when (x1 % 10) {
+            0 -> x2 = ""
             1 -> x2 = "X"
             2 -> x2 = "XX"
             3 -> x2 = "XXX"
@@ -450,6 +452,7 @@ fun roman(n: Int): String //= TODO()
             9 -> x2 = "XC"
         }
         if (i == 3) when (x1 % 10) {
+            0 -> x2 = ""
             1 -> x2 = "C"
             2 -> x2 = "CC"
             3 -> x2 = "CCC"
@@ -507,6 +510,7 @@ fun russian(n: Int): String //= TODO()
     if (n / 1000 % 10 == 1) x4 = " тысяча"
     if (n / 1000 % 10 in 2..4) x4 = " тысячи"
     if (n / 1000 % 10 in 5..9 || n / 1000 % 10 == 0) x4 = " тысяч"
+    if (digitNumber(n) >= 5 && n / 10000 % 10 == 1 && n / 1000 % 10 in 1..2) x4 = " тысяч"
     if (x3 != 0) x4 += " " + russian3digits(x3, false)
     return russian3digits(n / 1000, true) + x4
 }
@@ -538,7 +542,9 @@ fun russian3digits(n: Int, b: Boolean): String
                 1 -> when (x1pred) {
                     "ноль" -> x2 = "десять"
                     "один" -> x2 = "одиннадцать"
+                    "одна" -> x2 = "одиннадцать"
                     "два" -> x2 = "двенадцать"
+                    "две" -> x2 = "двенадцать"
                     "три" -> x2 = "тринадцать"
                     "четыре" -> x2 = "четырнадцать"
                     "пять" -> x2 = "пятнадцать"
@@ -577,4 +583,3 @@ fun russian3digits(n: Int, b: Boolean): String
     }
     return x2
 }
-
