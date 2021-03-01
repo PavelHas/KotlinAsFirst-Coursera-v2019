@@ -510,7 +510,7 @@ fun russian(n: Int): String //= TODO()
     if (n / 1000 % 10 == 1) x4 = " тысяча"
     if (n / 1000 % 10 in 2..4) x4 = " тысячи"
     if (n / 1000 % 10 in 5..9 || n / 1000 % 10 == 0) x4 = " тысяч"
-    if (digitNumber(n) >= 5 && n / 10000 % 10 == 1 && n / 1000 % 10 in 1..2) x4 = " тысяч"
+    if (digitNumber(n) >= 5 && n / 10000 % 10 == 1 && n / 1000 % 10 in 1..9) x4 = " тысяч"
     if (x3 != 0) x4 += " " + russian3digits(x3, false)
     return russian3digits(n / 1000, true) + x4
 }
