@@ -524,7 +524,7 @@ fun russian3digits(n: Int, b: Boolean): String
     for (i in 1..digitNumber(n)) {
         if (i == 1) {
             when (x1 % 10) {
-                0 -> if (!b) x2 = "" else x2 = "ноль"
+                0 -> if (!b) x2 = "пустота" else x2 = "ноль"
                 1 -> if (b) x2 = "одна" else x2 = "один"
                 2 -> if (b) x2 = "две" else x2 = "два"
                 3 -> x2 = "три"
@@ -553,14 +553,14 @@ fun russian3digits(n: Int, b: Boolean): String
                     "восемь" -> x2 = "восемнадцать"
                     "девять" -> x2 = "девятнадцать"
                 }
-                2 -> if (x1pred == "ноль") x2 = "двадцать" else x2 = "двадцать " + x1pred
-                3 -> if (x1pred == "ноль") x2 = "тридцать" else x2 = "тридцать " + x1pred
-                4 -> if (x1pred == "ноль") x2 = "сорок" else x2 = "сорок " + x1pred
-                5 -> if (x1pred == "ноль") x2 = "пятьдесят" else x2 = "пятьдесят " + x1pred
-                6 -> if (x1pred == "ноль") x2 = "шестьдесят" else x2 = "шестьдесят " + x1pred
-                7 -> if (x1pred == "ноль") x2 = "семьдесят" else x2 = "семьдесят " + x1pred
-                8 -> if (x1pred == "ноль") x2 = "восемьдесят" else x2 = "восемьдесят " + x1pred
-                9 -> if (x1pred == "ноль") x2 = "девяносто" else x2 = "девяносто " + x1pred
+                2 -> if (x1pred == "ноль" || x1pred == "пустота") x2 = "двадцать" else x2 = "двадцать " + x1pred
+                3 -> if (x1pred == "ноль" || x1pred == "пустота") x2 = "тридцать" else x2 = "тридцать " + x1pred
+                4 -> if (x1pred == "ноль" || x1pred == "пустота") x2 = "сорок" else x2 = "сорок " + x1pred
+                5 -> if (x1pred == "ноль" || x1pred == "пустота") x2 = "пятьдесят" else x2 = "пятьдесят " + x1pred
+                6 -> if (x1pred == "ноль" || x1pred == "пустота") x2 = "шестьдесят" else x2 = "шестьдесят " + x1pred
+                7 -> if (x1pred == "ноль" || x1pred == "пустота") x2 = "семьдесят" else x2 = "семьдесят " + x1pred
+                8 -> if (x1pred == "ноль" || x1pred == "пустота") x2 = "восемьдесят" else x2 = "восемьдесят " + x1pred
+                9 -> if (x1pred == "ноль" || x1pred == "пустота") x2 = "девяносто" else x2 = "девяносто " + x1pred
             }
             x2pred = x2
         }
@@ -583,3 +583,10 @@ fun russian3digits(n: Int, b: Boolean): String
     }
     return x2
 }
+
+/*fun main() {
+    val x1x2 = quadraticRootProduct(1.0, 13.0, 42.0)
+    println("Root product: $x1x2")
+    println(russian(106690))
+
+}*/
