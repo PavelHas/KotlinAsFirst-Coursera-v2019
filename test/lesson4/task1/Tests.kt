@@ -165,6 +165,8 @@ class Tests {
         assertEquals(listOf(2), factorize(2))
         assertEquals(listOf(3, 5, 5), factorize(75))
         assertEquals(listOf(2, 3, 3, 19), factorize(342))
+        // my
+        assertEquals(listOf(2, 3, 5, 5), factorize(150))
     }
 
     @Test
@@ -226,6 +228,8 @@ class Tests {
         assertEquals("MCMLXXVIII", roman(1978))
         assertEquals("DCXCIV", roman(694))
         assertEquals("XLIX", roman(49))
+        // my
+        assertEquals("MMMCMXCIX", roman(3999))
     }
 
     @Test
@@ -236,6 +240,7 @@ class Tests {
         assertEquals("сто девятнадцать тысяч пятьсот восемь", russian(119508))
         assertEquals("две тысячи три", russian(2003))
         assertEquals("двести тысяч два", russian(200002))
+        assertEquals("двадцать две тысячи", russian(22000))
         assertEquals("девятьсот тысяч", russian(900000))
         assertEquals("двенадцать", russian(12))
     }
